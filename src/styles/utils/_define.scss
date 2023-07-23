@@ -1,0 +1,12 @@
+// variable
+@import "./variables";
+
+// components
+@import "../Global.scss";
+@import "../components/Navbar.scss";
+@import "../components/CarouselItem.scss";
+@import "../components/Footer.scss";
+
+// page
+@import "../pages/Home.scss";
+@import "../pages/Login.scss";

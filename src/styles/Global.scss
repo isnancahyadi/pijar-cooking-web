@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  transition: all 0.2s linear;
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.btn-primary:hover {
+  background-color: $primary-color-hover;
+  border-color: $primary-color-hover;
+}
+
+.btn-primary:active {
+  background-color: $primary-color-click !important;
+  border-color: $primary-color-click !important;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: black;
+  border-color: rgb(200, 200, 200);
+}
+
+.btn-secondary:hover {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+@media only screen and (max-width: 480px) {
+  * {
+    font-size: 50%;
+  }
+}
