@@ -19,6 +19,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass, faStar } from "@fortawesome/free-solid-svg-icons";
 import { PersistGate } from "redux-persist/integration/react";
 import axios from "axios";
+import Profile from "./pages/Profile";
 
 library.add(faMagnifyingGlass, faStar);
 
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
       <Route path="/login" element={<Login />} />
     </Route>

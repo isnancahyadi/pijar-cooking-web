@@ -14,9 +14,9 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    axios
-      .get(process.env.REACT_APP_NEW_RECIPES)
-      .then((response) => setRecipeList(response?.data?.payload[0]));
+    axios.get(process.env.REACT_APP_NEW_RECIPES).then((response) => {
+      setRecipeList(response?.data?.payload?.metadata[0]);
+    });
   }, []);
 
   return (
