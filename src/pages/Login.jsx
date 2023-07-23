@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addAuth, getUser } from "../store/reducers/authSlice";
 
 import axios from "axios";
@@ -9,6 +9,7 @@ import Swal from "sweetalert2";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function Login() {
   }, [state]);
 
   const handleLogin = () => {
+    setIsLoading(true);
     axios
       .post(process.env.REACT_APP_LOGIN, {
         username: username,
@@ -33,6 +35,7 @@ function Login() {
         dispatch(getUser());
         localStorage.setItem("auth", "true");
         localStorage.setItem("token", result?.data?.payload?.token);
+        setIsLoading(false);
         Swal.fire({
           title: "Login Success",
           text: "Login success. Redirect to app...",
@@ -43,6 +46,7 @@ function Login() {
         });
       })
       .catch((error) => {
+        setIsLoading(false);
         Swal.fire({
           title: "Login Failed",
           // text:
@@ -101,31 +105,42 @@ function Login() {
                         type="submit"
                         className="btn btn-primary btn-lg mt-4"
                         onClick={handleLogin}
+                        disabled={isLoading}
                       >
-                        Log in
+                        {isLoading ? (
+                          <>
+                            <span
+                              class="spinner-border"
+                              role="status"
+                              aria-hidden="true"
+                            ></span>
+                          </>
+                        ) : (
+                          <>Log in</>
+                        )}
                       </button>
                     </div>
                     <div className="d-flex justify-content-end mt-2">
                       <small className="d-block">
-                        <a
+                        <Link
                           id="a-login"
-                          href="#"
+                          to="#"
                           className="text-decoration-none text-muted"
                         >
                           Forgot Password ?
-                        </a>
+                        </Link>
                       </small>
                     </div>
                     <small className="txt-login d-block text-center text-muted mt-4">
                       Don’t have an account?
-                      <a
+                      <Link
                         id="a-login"
                         className="text-decoration-none"
-                        href="/register"
+                        to="/register"
                       >
                         {" "}
                         Sign Up
-                      </a>
+                      </Link>
                     </small>
                   </form>
                 </div>
