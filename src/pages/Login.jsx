@@ -25,13 +25,12 @@ function Login() {
 
   const handleLogin = () => {
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, {
+      .post(process.env.REACT_APP_LOGIN, {
         username: username,
         password: password,
       })
       .then((result) => {
         dispatch(getUser());
-        console.log(result);
         localStorage.setItem("auth", "true");
         localStorage.setItem("token", result?.data?.payload?.token);
         Swal.fire({

@@ -84,9 +84,9 @@ const Navbar = () => {
                         <li>
                           <Link
                             className="dropdown-item"
-                            to={"/login"}
                             onClick={() => {
                               localStorage.clear();
+                              window.location.href = "/login";
                             }}
                           >
                             Logout

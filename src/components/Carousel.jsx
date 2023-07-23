@@ -8,7 +8,7 @@ const Carousel = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/recipe?limit=5`)
+      .get(`${process.env.REACT_APP_GET_RECIPE}?limit=5`)
       .then((response) => setRecipeList(response?.data?.payload));
   }, []);
 
@@ -21,13 +21,14 @@ const Carousel = () => {
       >
         <div className="carousel-indicators">
           {recipeList.map((item, key) => (
-            <CarouselIndicators k={key} />
+            <CarouselIndicators key={key} k={key} />
           ))}
         </div>
 
         <div className="carousel-inner">
           {recipeList.map((item, key) => (
             <CarouselItem
+              key={key}
               title={item?.title}
               image={item?.image}
               id={item?.id}

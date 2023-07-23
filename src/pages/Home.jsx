@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/recipe/new`)
+      .get(process.env.REACT_APP_NEW_RECIPES)
       .then((response) => setRecipeList(response?.data?.payload[0]));
   }, []);
 
