@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { addAuth, getUser } from "../store/reducers/authSlice";
+import { getUser } from "../store/reducers/authSlice";
 
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -42,15 +42,29 @@ function Login() {
           icon: "success",
         }).then(() => {
           navigate("/profile");
-          // dispatch(addAuth(result));
         });
       })
-      .catch((error) => {
+      .catch(({ response }) => {
         setIsLoading(false);
+        console.log(response);
+
+        const getRes = Object.keys(response?.data?.message);
+
+        let msgProperty = [];
+
+        getRes.map((item, key) => {
+          const {
+            [item]: { message },
+          } = response?.data?.message;
+
+          msgProperty[key] = message;
+        });
+
         Swal.fire({
           title: "Login Failed",
-          // text:
-          //   error?.response?.data?.message ?? "Something wrong with our app",
+          text:
+            msgProperty.toString().split(".,").join(", ") ??
+            "Something wrong with our app",
           icon: "error",
         });
       });
