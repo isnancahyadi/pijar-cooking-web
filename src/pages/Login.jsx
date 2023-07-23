@@ -33,7 +33,6 @@ function Login() {
       })
       .then((result) => {
         dispatch(getUser());
-        localStorage.setItem("auth", "true");
         localStorage.setItem("token", result?.data?.payload?.token);
         setIsLoading(false);
         Swal.fire({
@@ -46,7 +45,6 @@ function Login() {
       })
       .catch(({ response }) => {
         setIsLoading(false);
-        console.log(response);
 
         const getRes = Object.keys(response?.data?.message);
 

@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { resetAuth } from "../store/reducers/authSlice";
 
 const Navbar = () => {
   const user = useSelector((state) => state.auth.auth);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="Nav">
@@ -46,7 +49,7 @@ const Navbar = () => {
               </li>
             </ul>
             <ul className="navbar-nav">
-              {localStorage.getItem("auth") ? (
+              {localStorage.getItem("token") ? (
                 <>
                   <li className="nav-item mx-1">
                     <div className="dropdown">
@@ -86,6 +89,7 @@ const Navbar = () => {
                             className="dropdown-item"
                             onClick={() => {
                               localStorage.clear();
+                              dispatch(resetAuth);
                               window.location.href = "/login";
                             }}
                           >
