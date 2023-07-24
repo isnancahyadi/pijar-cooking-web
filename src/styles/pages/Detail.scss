@@ -1,0 +1,29 @@
+.Detail {
+  #content {
+    position: relative;
+    padding: 10rem 4rem;
+
+    .h2-detail {
+      font-size: 2rem !important;
+    }
+
+    .main-image {
+      height: 90vh;
+      width: 80%;
+      margin-top: 40px;
+      object-fit: cover;
+      object-position: center;
+      background-color: gray;
+      border-radius: 10px;
+    }
+
+    .video-directions {
+      border-radius: 20px;
+      width: 1080px;
+      height: 608px;
+      object-fit: cover;
+      background-position: center;
+      display: flex;
+    }
+  }
+}

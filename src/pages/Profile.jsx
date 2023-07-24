@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import MyRecipe from "../components/Tab/Profile/MyRecipe";
@@ -13,6 +13,10 @@ const tabContent = [
 
 const Profile = () => {
   const user = useSelector((state) => state.auth.auth);
+
+  useEffect(() => {
+    document.title = "Profile";
+  }, []);
 
   return (
     <div className="Profile">

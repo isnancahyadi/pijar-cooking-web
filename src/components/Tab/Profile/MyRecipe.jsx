@@ -6,9 +6,9 @@ const MyRecipe = () => {
   const [recipeList, setRecipeList] = useState([]);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_MY_RECIPES).then((response) => {
-      setRecipeList(response?.data?.payload?.metadata);
-    });
+    axios
+      .get(process.env.REACT_APP_MY_RECIPES)
+      .then((response) => setRecipeList(response?.data?.payload?.metadata));
   }, []);
 
   return (
@@ -28,7 +28,7 @@ const MyRecipe = () => {
                 to={`/detail/${item?.title
                   ?.toLowerCase()
                   ?.split(" ")
-                  ?.join("-")}?${item?.id}`}
+                  ?.join("-")}?id=${item?.id}`}
                 style={{ textDecoration: "none" }}
               >
                 <div
