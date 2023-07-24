@@ -31,19 +31,19 @@ const Detail = () => {
           </div>
           <div className="container animate__animated animate__fadeIn">
             <div className="row mt-5 justify-content-md-center">
-              <div className="col-6">
+              <div className="col-md-6 col-xs-12">
                 <h2 className="h2-detail mb-3">Ingredients</h2>
                 <ul className="fs-5">
                   {currentRecipe?.ingredients?.split(", ").map((item) => (
-                    <li>{item}</li>
+                    <li className="list-ingredients">{item}</li>
                   ))}
                 </ul>
               </div>
-              <div className="col-6">
+              <div className="col-md-6 col-xs-12">
                 <h2 className="h2-detail mb-3">Directions</h2>
                 <ul className="fs-5">
                   {currentRecipe?.direction?.split("; ").map((item) => (
-                    <li>{item}</li>
+                    <li className="list-direction">{item}</li>
                   ))}
                 </ul>
               </div>
