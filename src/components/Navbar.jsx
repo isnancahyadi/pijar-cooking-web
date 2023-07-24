@@ -26,12 +26,13 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div
-            id="navbarText"
-            className="collapse navbar-collapse"
-            style={{ justifyContent: "space-between" }}
+            id="item-navbar"
+            className="row"
+            style={{ justifyContent: "space-between", width: "100%" }}
           >
-            <ul className="navbar-nav">
+            <ul className="navbar-nav col-auto">
               <li className="nav-item mx-4">
                 <Link className="nav-link fs-5 fw-bold" to={"/"}>
                   Home
@@ -48,7 +49,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <ul className="navbar-nav">
+            <ul className="navbar-nav col-auto">
               {localStorage.getItem("token") ? (
                 <>
                   <li className="nav-item mx-1">
@@ -59,10 +60,10 @@ const Navbar = () => {
                         aria-expanded="false"
                         style={{ cursor: "pointer" }}
                       >
-                        <div className="col-auto text fs-5">
+                        <div className="col-auto text fs-5 order-2 order-md-1">
                           Hi, {user?.username}
                         </div>
-                        <div className="col-auto ps-0">
+                        <div className="col-auto ps-0 order-1 order-md-2">
                           <img
                             className="img-profile rounded-circle"
                             src={user?.profile_picture}
@@ -127,6 +128,77 @@ const Navbar = () => {
                 </>
               )}
             </ul>
+          </div>
+
+          <div id="navbarText" className="collapse navbar-collapse">
+            <div id="collapse-item">
+              <ul className="navbar-nav col-auto">
+                <li className="nav-item mx-4">
+                  <Link className="nav-link fs-5 fw-bold" to={"/"}>
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item mx-4">
+                  <Link className="nav-link fs-5 fw-bold" to={"/recipe/add"}>
+                    List Recipe
+                  </Link>
+                </li>
+                <li className="nav-item mx-4">
+                  <Link className="nav-link fs-5 fw-bold" to={"/recipe/add"}>
+                    Add Recipe
+                  </Link>
+                </li>
+                <li className="nav-item mx-4">
+                  <hr className="my-1" />
+                </li>
+                {localStorage.getItem("token") ? (
+                  <>
+                    <li className="nav-item mx-4">
+                      <Link className="nav-link fs-5 fw-bold" to={"/profile"}>
+                        My Profile
+                      </Link>
+                    </li>
+                    <li className="nav-item mx-4">
+                      <Link
+                        className="nav-link fs-5 fw-bold"
+                        onClick={() => {
+                          localStorage.clear();
+                          dispatch(resetAuth);
+                          window.location.href = "/login";
+                        }}
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="nav-item mx-4">
+                      <Link to={"/login"}>
+                        <button
+                          id="btn-login"
+                          type="button"
+                          className="btn btn-primary border-2 rounded-pill mt-1 mb-1"
+                        >
+                          Login
+                        </button>
+                      </Link>
+                    </li>
+                    <li className="nav-item mx-1">
+                      <Link to={"/register"}>
+                        <button
+                          id="btn-register"
+                          type="button"
+                          className="btn btn-secondary border-2 rounded-pill mt-1 mb-1"
+                        >
+                          Register
+                        </button>
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
