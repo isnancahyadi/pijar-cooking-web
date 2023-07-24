@@ -1,0 +1,61 @@
+.AddRecipe {
+  position: relative;
+  padding: 0 20rem;
+  min-height: auto;
+
+  #form-input-recipe {
+    margin-top: 15%;
+    margin-bottom: 15%;
+  }
+
+  #form-file {
+    display: flex;
+    flex-direction: column;
+    border: 2px dashed $primary-color;
+    height: 50vh;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+
+    .img-preview {
+      height: 100%;
+      width: auto;
+    }
+
+    #ic-image-preview {
+      font-size: 125px;
+      color: $primary-color;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 0 5rem;
+
+    #form-input-recipe {
+      margin-top: 27%;
+      margin-bottom: 0;
+    }
+
+    #form-file {
+      height: 25vh;
+
+      #ic-image-preview {
+        font-size: 75px;
+      }
+    }
+
+    .text-notes {
+      font-size: 7px;
+    }
+
+    .form-label {
+      font-size: 9px;
+    }
+
+    .form-select {
+      option {
+        font-size: 7px;
+      }
+    }
+  }
+}

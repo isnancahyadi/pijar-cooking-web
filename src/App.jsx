@@ -16,13 +16,18 @@ import { persistor, store } from "./store";
 import { Provider } from "react-redux";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass, faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faStar,
+  faImage,
+} from "@fortawesome/free-solid-svg-icons";
 import { PersistGate } from "redux-persist/integration/react";
 import axios from "axios";
 import Profile from "./pages/Profile";
 import Detail from "./pages/Detail";
+import AddRecipe from "./pages/AddRecipe";
 
-library.add(faMagnifyingGlass, faStar);
+library.add(faMagnifyingGlass, faStar, faImage);
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +36,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="profile" element={<Profile />} />
         <Route path="detail/:any" element={<Detail />} />
+        <Route path="recipe/add" element={<AddRecipe />} />
       </Route>
       <Route path="/login" element={<Login />} />
     </Route>
