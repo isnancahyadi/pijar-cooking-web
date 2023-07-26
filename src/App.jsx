@@ -26,6 +26,7 @@ import axios from "axios";
 import Profile from "./pages/Profile";
 import Detail from "./pages/Detail";
 import AddRecipe from "./pages/AddRecipe";
+import ListRecipe from "./pages/ListRecipe";
 
 library.add(faMagnifyingGlass, faStar, faImage);
 
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="recipe" element={<ListRecipe />} />
         <Route path="detail/:any" element={<Detail />} />
         <Route path="recipe/add" element={<AddRecipe />} />
       </Route>

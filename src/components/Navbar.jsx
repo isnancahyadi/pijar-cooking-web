@@ -39,7 +39,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item mx-4">
-                <Link className="nav-link fs-5 fw-bold" to={"/recipe/add"}>
+                <Link className="nav-link fs-5 fw-bold" to={"/recipe"}>
                   List Recipe
                 </Link>
               </li>

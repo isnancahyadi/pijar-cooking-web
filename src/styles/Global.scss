@@ -30,6 +30,25 @@
   border-color: $primary-color;
 }
 
+.cutoff-text {
+  --max-lines: 4;
+  --line-height: 1.4;
+  height: calc(var(--max-lines) * 1em * var(--line-height));
+  line-height: var(--line-height);
+  position: relative;
+  overflow: hidden;
+}
+
+.cutoff-text::before {
+  content: "";
+  position: absolute;
+  height: calc(2em * var(--line-height));
+  width: 100%;
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, white);
+}
+
 @media only screen and (max-width: 480px) {
   * {
     font-size: 50%;
