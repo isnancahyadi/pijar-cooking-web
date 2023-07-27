@@ -4,10 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Carousel from "../components/Carousel";
-import Footer from "../components/Footer";
+import CardRecipe from "../components/CardRecipe";
 
 const Home = () => {
   const [recipeList, setRecipeList] = useState([]);
+  const [search, setSearch] = useState("");
+  const [foundRecipes, setFoundRecipes] = useState([]);
 
   useEffect(() => {
     document.title = "Home";
@@ -18,6 +20,14 @@ const Home = () => {
       setRecipeList(response?.data?.payload?.metadata[0]);
     });
   }, []);
+
+  const fetchDataRecipe = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_RECIPE}?search=${search}`)
+      .then(({ data }) => {
+        setFoundRecipes(data?.payload?.metadata);
+      });
+  };
 
   return (
     <>
@@ -39,7 +49,61 @@ const Home = () => {
                   <input
                     className="form-control form-control-lg"
                     placeholder="Search Restaurant, Food"
+                    onChange={(e) => setSearch(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key == "Enter") {
+                        fetchDataRecipe();
+                        document.querySelector("#modal").click();
+                      }
+                    }}
                   />
+                  <div
+                    id="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  />
+                  <div
+                    className="modal fade"
+                    id="exampleModal"
+                    tabIndex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h1
+                            className="modal-title fs-5"
+                            id="exampleModalLabel"
+                          >
+                            Search for {search}
+                          </h1>
+                          <button
+                            id="close-modal"
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div className="modal-body">
+                          <div className="row row-gap-4 align-items-center justify-content-center">
+                            {foundRecipes.map((item, key) => (
+                              <div
+                                key={key}
+                                className="col-4 col-xs-6"
+                                onClick={() =>
+                                  document.querySelector("#close-modal").click()
+                                }
+                              >
+                                <CardRecipe recipe={item} />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="main-img col-md-6 order-1 order-md-2 animate__animated animate__fadeInRight">
