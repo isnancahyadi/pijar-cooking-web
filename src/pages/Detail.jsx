@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 const Detail = () => {
   const location = useLocation();
   const [currentRecipe, setCurrentRecipe] = useState(null);
-  const id = location?.search?.split("?id=")[1];
+  const id = location?.state?.id;
 
   useEffect(() => {
     window.scrollTo(0, 0);

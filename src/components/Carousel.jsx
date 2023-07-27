@@ -7,7 +7,7 @@ const Carousel = () => {
   const [recipeList, setRecipeList] = useState([]);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_GET_RECIPE).then((response) => {
+    axios.get(process.env.REACT_APP_RECIPE).then((response) => {
       setRecipeList(response?.data?.payload?.metadata);
     });
   }, []);

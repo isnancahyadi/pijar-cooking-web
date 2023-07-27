@@ -28,7 +28,8 @@ const MyRecipe = () => {
                 to={`/detail/${item?.title
                   ?.toLowerCase()
                   ?.split(" ")
-                  ?.join("-")}?id=${item?.id}`}
+                  ?.join("-")}`}
+                state={{ id: item?.id }}
                 style={{ textDecoration: "none" }}
               >
                 <div

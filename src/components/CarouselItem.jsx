@@ -8,7 +8,8 @@ const CarouselItem = (props) => {
     <div className="CarouselItem" key={k}>
       <div className={`carousel-item ${k === 0 ? "active" : ""}`}>
         <Link
-          to={`/detail/${title?.toLowerCase()?.split(" ")?.join("-")}?${id}`}
+          to={`/detail/${title?.toLowerCase()?.split(" ")?.join("-")}`}
+          state={{ id: id }}
           style={{ textDecoration: "none" }}
         >
           <img src={image} className="d-block w-100 menu-recipe" />

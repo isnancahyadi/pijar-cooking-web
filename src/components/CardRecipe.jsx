@@ -5,10 +5,8 @@ const CardRecipe = ({ recipe }) => {
   return (
     <div className="CardRecipe">
       <Link
-        to={`/detail/${recipe?.title
-          ?.toLowerCase()
-          ?.split(" ")
-          ?.join("-")}?id=${recipe?.id}`}
+        to={`/detail/${recipe?.title?.toLowerCase()?.split(" ")?.join("-")}`}
+        state={{ id: recipe?.id }}
         style={{ textDecoration: "none" }}
       >
         <div className="card">
