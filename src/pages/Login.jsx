@@ -21,7 +21,7 @@ function Login() {
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("auth") || state.auth) navigate("/profile");
+    if (localStorage.getItem("token") || state.auth) navigate("/profile");
   }, [state]);
 
   const handleLogin = () => {

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import MyRecipe from "../components/Tab/Profile/MyRecipe";
 import TabProfile from "../components/Tab/Profile/TabProfile";
+import { useNavigate } from "react-router-dom";
 
 const tabContent = [
   {
@@ -13,9 +14,14 @@ const tabContent = [
 
 const Profile = () => {
   const user = useSelector((state) => state.auth.auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = "Profile";
+  }, []);
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) navigate("/login");
   }, []);
 
   return (

@@ -30,6 +30,12 @@
   border-color: $primary-color;
 }
 
+.btn-secondary:active,
+.btn-secondary.active {
+  background-color: $primary-color-click !important;
+  border-color: $primary-color-click !important;
+}
+
 .cutoff-text {
   --max-lines: 4;
   --line-height: 1.4;

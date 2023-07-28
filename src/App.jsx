@@ -20,6 +20,8 @@ import {
   faMagnifyingGlass,
   faStar,
   faImage,
+  faAngleLeft,
+  faAngleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { PersistGate } from "redux-persist/integration/react";
 import axios from "axios";
@@ -28,7 +30,7 @@ import Detail from "./pages/Detail";
 import AddRecipe from "./pages/AddRecipe";
 import ListRecipe from "./pages/ListRecipe";
 
-library.add(faMagnifyingGlass, faStar, faImage);
+library.add(faMagnifyingGlass, faStar, faImage, faAngleLeft, faAngleRight);
 
 const router = createBrowserRouter(
   createRoutesFromElements(

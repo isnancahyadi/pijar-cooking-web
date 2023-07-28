@@ -26,6 +26,10 @@ const AddRecipe = () => {
   }, []);
 
   useEffect(() => {
+    if (!localStorage.getItem("token")) navigate("/login");
+  }, []);
+
+  useEffect(() => {
     axios
       .get(process.env.REACT_APP_GET_CATEGORY)
       .then((response) => {

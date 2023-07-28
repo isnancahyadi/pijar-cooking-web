@@ -3,18 +3,36 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const MyRecipe = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [recipeList, setRecipeList] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(process.env.REACT_APP_MY_RECIPES)
-      .then((response) => setRecipeList(response?.data?.payload?.metadata));
+    setIsLoading(true);
+
+    axios.get(process.env.REACT_APP_MY_RECIPES).then((response) => {
+      setRecipeList(response?.data?.payload?.metadata);
+      setIsLoading(false);
+    });
   }, []);
 
   return (
     <div className="MyRecipe">
       <div className="row">
-        {!recipeList.length ? (
+        {isLoading ? (
+          <div className="d-flex justify-content-center align-items-center">
+            <div
+              className="spinner-grow"
+              style={{
+                width: "3rem",
+                height: "3rem",
+                color: "rgb(215, 154, 255)",
+              }}
+              role="status"
+            >
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        ) : !recipeList.length ? (
           <div className="text-center">
             <h5 className="text-body-tertiary">My recipe not found</h5>
           </div>
