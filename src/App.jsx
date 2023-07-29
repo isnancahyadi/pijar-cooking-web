@@ -29,6 +29,7 @@ import Profile from "./pages/Profile";
 import Detail from "./pages/Detail";
 import AddRecipe from "./pages/AddRecipe";
 import ListRecipe from "./pages/ListRecipe";
+import Register from "./pages/Register";
 
 library.add(faMagnifyingGlass, faStar, faImage, faAngleLeft, faAngleRight);
 
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
         <Route path="recipe/add" element={<AddRecipe />} />
       </Route>
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
     </Route>
   )
 );
