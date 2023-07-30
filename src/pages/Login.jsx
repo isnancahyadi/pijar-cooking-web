@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../store/reducers/authSlice";
 
 import axios from "axios";
 import Swal from "sweetalert2";
+import ReRegistration from "../components/ReRegistration";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [notRegistered, setNotRegistered] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -32,8 +34,8 @@ function Login() {
         password: password,
       })
       .then((result) => {
-        dispatch(getUser());
         localStorage.setItem("token", result?.data?.payload?.token);
+        dispatch(getUser());
         setIsLoading(false);
         Swal.fire({
           title: "Login Success",
@@ -58,6 +60,24 @@ function Login() {
           msgProperty[key] = message;
         });
 
+        if (response?.status === 401) {
+          Swal.fire({
+            title: "Login Failed",
+            text:
+              `${msgProperty
+                .toString()
+                .split(".,")
+                .join(
+                  ", "
+                )}. Please register your profile first before login.` ??
+              "Something wrong with our app",
+            icon: "error",
+          }).then(() => {
+            setNotRegistered(true);
+          });
+          return;
+        }
+
         Swal.fire({
           title: "Login Failed",
           text:
@@ -70,6 +90,9 @@ function Login() {
 
   return (
     <div className="Login">
+      {notRegistered && (
+        <ReRegistration closeModal={setNotRegistered} username={username} />
+      )}
       {/* <!-- Start of content --> */}
       <section>
         <div id="login-section" className="row">
@@ -122,7 +145,7 @@ function Login() {
                         {isLoading ? (
                           <>
                             <span
-                              class="spinner-border"
+                              className="spinner-border"
                               role="status"
                               aria-hidden="true"
                             ></span>

@@ -9,14 +9,17 @@ const initialState = {
   message: "",
 };
 
-export const getUser = createAsyncThunk("user/getUser", async (_, thunkAPI) => {
-  try {
-    const { data } = await axios.get(process.env.REACT_APP_GET_USER);
-    return data?.payload[0];
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.response.data);
+export const getUser = createAsyncThunk(
+  "user/getUser",
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(process.env.REACT_APP_GET_USER);
+      return data?.payload[0];
+    } catch (err) {
+      return rejectWithValue(err.response.data);
+    }
   }
-});
+);
 
 export const authSlice = createSlice({
   name: "auth",

@@ -9,10 +9,16 @@ const MyRecipe = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    axios.get(process.env.REACT_APP_MY_RECIPES).then((response) => {
-      setRecipeList(response?.data?.payload?.metadata);
-      setIsLoading(false);
-    });
+    axios
+      .get(process.env.REACT_APP_MY_RECIPES)
+      .then((response) => {
+        setRecipeList(response?.data?.payload?.metadata);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        return;
+      });
   }, []);
 
   return (
@@ -34,7 +40,9 @@ const MyRecipe = () => {
           </div>
         ) : !recipeList.length ? (
           <div className="text-center">
-            <h5 className="text-body-tertiary">My recipe not found</h5>
+            <h5 className="text-body-tertiary">
+              My recipe isn't available yet
+            </h5>
           </div>
         ) : (
           recipeList?.map((item, key) => (
