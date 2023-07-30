@@ -19,6 +19,11 @@
   border-color: $primary-color-click !important;
 }
 
+.btn-primary:disabled {
+  background-color: $primary-color-disable !important;
+  border-color: $primary-color-disable !important;
+}
+
 .btn-secondary {
   background-color: white;
   color: black;
