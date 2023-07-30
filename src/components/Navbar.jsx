@@ -78,11 +78,6 @@ const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link className="dropdown-item" to={"/my-recipe"}>
-                            My Recipe
-                          </Link>
-                        </li>
-                        <li>
                           <hr className="dropdown-divider" />
                         </li>
                         <li>
@@ -139,7 +134,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="nav-item mx-4">
-                  <Link className="nav-link fs-5 fw-bold" to={"/recipe/add"}>
+                  <Link className="nav-link fs-5 fw-bold" to={"/recipe"}>
                     List Recipe
                   </Link>
                 </li>
