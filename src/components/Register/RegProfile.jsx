@@ -98,7 +98,7 @@ const RegProfile = ({ user }) => {
               Let we know, who are you
             </p>
             <hr size="1" color="#F5F5F5" />
-            <form onSubmit={handleSubmit(onSubmit)} novalidate>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
               <div className="mb-3">
                 <label className="form-label">Fullname*</label>
                 <input

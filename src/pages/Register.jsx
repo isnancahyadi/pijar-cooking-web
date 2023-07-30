@@ -26,14 +26,14 @@ const Register = () => {
           )}
           <div className="register-img col-md-6 order-1 p-0 animate__animated animate__fadeInLeft">
             <div
-              className="img-login"
+              className="img-register"
               style={{ backgroundImage: "url('/assets/img/login-img.jpg')" }}
             >
               <div
-                className="img-login"
+                className="img-register"
                 style={{ backgroundColor: "rgba(215, 154, 255, 0.85)" }}
               >
-                <div className="img-login row justify-content-center align-items-center">
+                <div className="img-register row justify-content-center align-items-center">
                   <img
                     src="/assets/icon/logo-3.svg"
                     style={{ width: "30%", height: "auto" }}

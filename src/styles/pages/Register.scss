@@ -20,7 +20,7 @@
     font-weight: 700;
   }
 
-  .img-login {
+  .img-register {
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -33,5 +33,36 @@
 
   #a-register {
     color: $primary-color;
+  }
+
+  @media only screen and (max-width: 480px) {
+    #register-section {
+      height: auto;
+      width: auto;
+    }
+
+    .register-img {
+      height: 20vh;
+    }
+
+    .cont-form-register {
+      height: auto;
+      padding: 0 4rem;
+      margin-top: 5rem;
+    }
+
+    .txt-register,
+    .form-label,
+    #a-register {
+      font-size: 12px;
+    }
+
+    .h1-register {
+      font-size: 21px;
+    }
+
+    #btn-register {
+      font-size: 17px;
+    }
   }
 }

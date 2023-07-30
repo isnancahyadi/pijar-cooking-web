@@ -94,7 +94,7 @@ const RegAccount = ({ submitAccount }) => {
               Create new account to access all features
             </p>
             <hr size="1" color="#F5F5F5" />
-            <form onSubmit={handleSubmit(onSubmit)} novalidate>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate>
               <div className="mb-3">
                 <label className="form-label">Username*</label>
                 <input
