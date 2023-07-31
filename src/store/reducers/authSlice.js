@@ -13,7 +13,7 @@ export const getUser = createAsyncThunk(
   "user/getUser",
   async (_, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(process.env.REACT_APP_GET_USER);
+      const { data } = await axios.get(process.env.REACT_APP_USER);
       return data?.payload[0];
     } catch (err) {
       return rejectWithValue(err.response.data);
