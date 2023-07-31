@@ -5,4 +5,29 @@
       object-fit: cover;
     }
   }
+
+  @media only screen and (max-width: 480px) {
+    .card {
+      // height: 20vh;
+      .card-title {
+        min-height: 4vh;
+        max-height: 4vh;
+      }
+
+      .card-img-top {
+        height: 12vh;
+        object-fit: cover;
+      }
+
+      .card-body {
+        // .card-title {
+        //   font-size: medium;
+        // }
+
+        .card-text {
+          font-size: 8px;
+        }
+      }
+    }
+  }
 }

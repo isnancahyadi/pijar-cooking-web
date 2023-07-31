@@ -64,4 +64,8 @@
   * {
     font-size: 50%;
   }
+
+  .cutoff-text {
+    --max-lines: 3;
+  }
 }

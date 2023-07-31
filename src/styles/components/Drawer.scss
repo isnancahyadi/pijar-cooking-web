@@ -1,0 +1,56 @@
+.Drawer {
+  visibility: hidden;
+  display: none;
+
+  .offcanvas {
+    .offcanvas-body {
+      .radio {
+        cursor: pointer;
+
+        #drawer-category-slug {
+          display: none;
+          visibility: hidden;
+          pointer-events: none;
+        }
+
+        #drawer-category-name {
+          padding: 7px 14px;
+          border: 2px solid $primary-color;
+          display: inline-block;
+          color: #8f37aa;
+          border-radius: 5px;
+          text-transform: uppercase;
+          width: 100%;
+        }
+
+        #drawer-category-slug:checked + #drawer-category-name,
+        #drawer-category-slug:hover + #drawer-category-name {
+          border-color: $primary-color;
+          background-color: $primary-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    visibility: visible;
+    display: block;
+
+    .offcanvas {
+      .offcanvas-header {
+        .btn-close {
+          font-size: small;
+        }
+      }
+
+      .offcanvas-body {
+        .radio {
+          #drawer-category-name {
+            font-size: medium;
+          }
+        }
+      }
+    }
+  }
+}
