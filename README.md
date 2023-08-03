@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# Pijar Cooking Web ver
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Introduction](#introduction)
+- [Demo](#demo)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Features](#features)
+- [Screenshot](#screenshot)
+- [Related Project](#related-project)
+- [Authors and Contact Info](#authors-and-contact-info)
 
-In the project directory, you can run:
+## Introduction
 
-### `npm start`
+Pijar Cooking is a web-based application using React JS technology and also has a mobile-based application using React Native that is connected to a backend system and the same database so that users can choose to use the web or mobile versions of the application. Pijar Cooking is aimed at young people, both men and women, who want to learn to cook and want to share the dishes and recipes they have found or learned with everyone. Not only that, Pijar Cooking can be used by mothers who want to cook for their beloved family so that there will be warmth and harmony in the family. Presented with a family friendly user interface that looks fun and navigation that is easy for both young people and mothers to use. Accompanied by video tutorials to make cooking sessions much more fun and clear. There is a chat feature with fellow users available on the mobile version with the aim that fellow users can interact by simply saying hello, giving direct appreciation for recipes that have been made, or asking for assistance.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Visit the link below for demo.
 
-### `npm test`
+- :globe_with_meridians: [Pijar Cooking Webiste Demo](https://pijar-cooking-web-v3.vercel.app/)
+- :link: [Pijar Cooking API Demo](https://pijar-cooking-api-v2-production.up.railway.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used
 
-### `npm run build`
+The project utilizes the following technologies and libraries:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React.js: A popular JavaScript library for building user interfaces, used as the core frontend framework.
+- Node.js: The JavaScript runtime that powers the server-side backend.
+- Axios: A promise-based HTTP client for making API requests from the frontend.
+- Bootstrap 5: A responsive CSS framework for creating modern and visually appealing designs.
+- Firebase: A cloud-based platform for building and hosting the backend and authentication services.
+- Sass: A CSS preprocessor for easier and more organized styling.
+- Redux: A state management library to efficiently manage application state.
+- React Hook Form: A library for handling form validation and form state in React applications.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone this repository to your local machine:
 
-### `npm run eject`
+```bash
+git clone https://github.com/isnancahyadi/pijar-cooking-web-v3.git
+cd pijar-cooking-web-v3
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install the required dependencies using npm or yarn:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+# or
+yarn install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Configuration
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Before running the application, you need to set up the configuration for Firebase authentication and API from backend. Create a .env file in the root directory of the project and add the following environment variable:
 
-## Learn More
+```bash
+REACT_APP_BACKEND_API=your_backend_api
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Features
 
-### Code Splitting
+- User Authentication: Allow users to sign up, log in, and manage their profiles.
+- Recipe Browsing: Users can browse a list of recipes and view recipe details.
+- Recipe Creation: Users can create and publish their own recipes.
+- Recipe Search: Users can search for recipes based on specific recipe keywords.
+- Responsive Design: The application is responsive and adapts to various screen sizes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Screenshot
 
-### Analyzing the Bundle Size
+<table>
+    <tr>
+        <td>1. Register Account Page</td>
+        <td>2. Register Profile Page</td>
+        <td>3. Login Page</td>
+    </tr>
+    <tr>
+        <td>
+            <img width="350px" src="./documentation/registeraccount.png" border="0" alt="Register Account" />
+        </td>
+        <td>
+            <img width="350px" src="./documentation/registerprofile.png" border="0"  alt="Register Profile" />
+        </td>
+        <td>
+            <img width="350px" src="./documentation/login.jpg" border="0"  alt="Login" />
+        </td>
+    </tr>
+    <tr>
+        <td>4. Profile Page</td>
+        <td>5. Home Page</td>
+        <td>6. List Recipes Page</td>
+    </tr>
+    <tr>
+        <td>
+            <img width="350px" src="./documentation/profile.png" border="0" alt="Profile" />
+        </td>
+        <td>
+            <img width="350px" src="./documentation/home.png" border="0"  alt="Home" />
+        </td>
+        <td>
+            <img width="350px" src="./documentation/listrecipe.png" border="0"  alt="List Recipe" />
+        </td>
+    </tr>
+    <tr>
+        <td>7. Detail Recipe Page</td>
+        <td>8. Add Recipe Page</td>
+    </tr>
+    <tr>
+        <td>
+            <img width="350px" src="./documentation/detailrecipe.jpg" border="0" alt="Detail Recipe" />
+        </td>
+        <td>
+            <img width="350px" src="./documentation/addrecipe.jpg" border="0"  alt="Add Recipe" />
+        </td>
+    </tr>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Related Project
 
-### Making a Progressive Web App
+- :iphone: [Pijar Cooking Mobile ver](https://github.com/isnancahyadi/pijar-cooking-mobile)
+- :link: [Pijar Cooking API](https://github.com/isnancahyadi/pijar-cooking-api-v2)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Authors and Contact Info
 
-### Advanced Configuration
+For more information about this project or have any question or need help for development, feel free to contact me.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Isnan Arif Cahyadi
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div id="badges">
+  <a href="https://www.linkedin.com/in/isnanarifcahyadi/">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+  </a>
+  <a href="mailto:isnan.arifc@gmail.com">
+    <img src="https://img.shields.io/badge/GMail-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+  </a>
+</div>
