@@ -87,7 +87,7 @@ REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
             <img width="350px" src="./documentation/registerprofile.png" border="0"  alt="Register Profile" />
         </td>
         <td>
-            <img width="350px" src="./documentation/login.jpg" border="0"  alt="Login" />
+            <img width="350px" src="./documentation/login.png" border="0"  alt="Login" />
         </td>
     </tr>
     <tr>
@@ -112,10 +112,10 @@ REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
     </tr>
     <tr>
         <td>
-            <img width="350px" src="./documentation/detailrecipe.jpg" border="0" alt="Detail Recipe" />
+            <img width="350px" src="./documentation/detailrecipe.png" border="0" alt="Detail Recipe" />
         </td>
         <td>
-            <img width="350px" src="./documentation/addrecipe.jpg" border="0"  alt="Add Recipe" />
+            <img width="350px" src="./documentation/addrecipe.png" border="0"  alt="Add Recipe" />
         </td>
     </tr>
 </table>
