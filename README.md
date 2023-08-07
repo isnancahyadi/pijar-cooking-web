@@ -20,8 +20,8 @@ Pijar Cooking is a web-based application using React JS technology and also has 
 
 Visit the link below for demo.
 
-- :globe_with_meridians: [Pijar Cooking Webiste Demo](https://pijar-cooking-web-v3.vercel.app/)
-- :link: [Pijar Cooking API Demo](https://pijar-cooking-api-v2-production.up.railway.app/)
+- :globe_with_meridians: [Pijar Cooking Webiste Demo](https://pijar-cooking-web.vercel.app/)
+- :link: [Pijar Cooking API Demo](https://pijar-cooking-api.up.railway.app/)
 
 ## Technologies Used
 
@@ -41,8 +41,8 @@ The project utilizes the following technologies and libraries:
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/isnancahyadi/pijar-cooking-web-v3.git
-cd pijar-cooking-web-v3
+git clone https://github.com/isnancahyadi/pijar-cooking-web.git
+cd pijar-cooking-web
 ```
 
 2. Install the required dependencies using npm or yarn:
@@ -123,7 +123,7 @@ REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
 ## Related Project
 
 - :iphone: [Pijar Cooking Mobile ver](https://github.com/isnancahyadi/pijar-cooking-mobile)
-- :link: [Pijar Cooking API](https://github.com/isnancahyadi/pijar-cooking-api-v2)
+- :link: [Pijar Cooking API](https://github.com/isnancahyadi/pijar-cooking-api)
 
 ## Authors and Contact Info
 
