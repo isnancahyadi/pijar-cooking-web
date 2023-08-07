@@ -6,6 +6,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const AddRecipe = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [fileName, setFileName] = useState(
@@ -41,6 +42,8 @@ const AddRecipe = () => {
   });
 
   const submitRecipe = async () => {
+    setIsLoading(true);
+
     const formData = new FormData();
     formData.append("title", title);
     formData.append("ingredients", ingredients);
@@ -63,10 +66,31 @@ const AddRecipe = () => {
           icon: "success",
         }).then(() => {
           navigate("/profile");
+          setIsLoading(false);
         });
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(({ response }) => {
+        setIsLoading(false);
+
+        const getRes = Object.keys(response?.data?.message);
+
+        let msgProperty = [];
+
+        getRes.map((item, key) => {
+          const {
+            [item]: { message },
+          } = response?.data?.message;
+
+          msgProperty[key] = message;
+        });
+
+        Swal.fire({
+          title: "Add Recipe Failed",
+          text:
+            msgProperty.toString().split(".,").join(", ") ??
+            "Something wrong with our app",
+          icon: "errr",
+        });
       });
   };
 
@@ -203,7 +227,17 @@ const AddRecipe = () => {
                 className="btn btn-primary btn-lg mt-4"
                 onClick={submitRecipe}
               >
-                Add Recipe
+                {isLoading ? (
+                  <>
+                    <span
+                      className="spinner-border"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                  </>
+                ) : (
+                  <>Add Recipe</>
+                )}
               </button>
             </div>
           </form>

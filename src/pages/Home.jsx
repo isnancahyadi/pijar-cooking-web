@@ -88,17 +88,27 @@ const Home = () => {
                         </div>
                         <div className="modal-body">
                           <div className="row row-gap-4 align-items-center justify-content-center">
-                            {foundRecipes.map((item, key) => (
-                              <div
-                                key={key}
-                                className="col-4 col-xs-6"
-                                onClick={() =>
-                                  document.querySelector("#close-modal").click()
-                                }
-                              >
-                                <CardRecipe recipe={item} />
+                            {!foundRecipes.length ? (
+                              <div className="text-center">
+                                <h5 className="text-body-tertiary">
+                                  Recipe not found
+                                </h5>
                               </div>
-                            ))}
+                            ) : (
+                              foundRecipes.map((item, key) => (
+                                <div
+                                  key={key}
+                                  className="col-4 col-xs-6"
+                                  onClick={() =>
+                                    document
+                                      .querySelector("#close-modal")
+                                      .click()
+                                  }
+                                >
+                                  <CardRecipe recipe={item} />
+                                </div>
+                              ))
+                            )}
                           </div>
                         </div>
                       </div>
@@ -197,7 +207,8 @@ const Home = () => {
                   to={`/detail/${recipeList?.title
                     ?.toLowerCase()
                     ?.split(" ")
-                    ?.join("-")}?${recipeList?.id}`}
+                    ?.join("-")}`}
+                  state={{ id: recipeList?.id }}
                   style={{ textDecoration: "none" }}
                 >
                   <button id="btn" className="btn btn-primary mt-3">
