@@ -7,6 +7,7 @@ import Carousel from "../components/Carousel";
 import CardRecipe from "../components/CardRecipe";
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
   const [search, setSearch] = useState("");
   const [foundRecipes, setFoundRecipes] = useState([]);
@@ -22,10 +23,18 @@ const Home = () => {
   }, []);
 
   const fetchDataRecipe = async () => {
+    setIsLoading(true);
     await axios
       .get(`${process.env.REACT_APP_RECIPE}?search=${search}`)
       .then(({ data }) => {
         setFoundRecipes(data?.payload?.metadata);
+        setIsLoading(false);
+      })
+      .catch(({ response }) => {
+        if (response?.status === 404) {
+          setFoundRecipes([]);
+          setIsLoading(false);
+        }
       });
   };
 
@@ -65,6 +74,8 @@ const Home = () => {
                   <div
                     className="modal fade"
                     id="exampleModal"
+                    data-bs-backdrop="static"
+                    data-bs-keyboard="false"
                     tabIndex="-1"
                     aria-labelledby="exampleModalLabel"
                     aria-hidden="true"
@@ -88,7 +99,23 @@ const Home = () => {
                         </div>
                         <div className="modal-body">
                           <div className="row row-gap-4 align-items-center justify-content-center">
-                            {!foundRecipes.length ? (
+                            {isLoading ? (
+                              <div className="d-flex justify-content-center align-items-center">
+                                <div
+                                  className="spinner-grow"
+                                  style={{
+                                    width: "3rem",
+                                    height: "3rem",
+                                    color: "rgb(215, 154, 255)",
+                                  }}
+                                  role="status"
+                                >
+                                  <span className="visually-hidden">
+                                    Loading...
+                                  </span>
+                                </div>
+                              </div>
+                            ) : !foundRecipes.length ? (
                               <div className="text-center">
                                 <h5 className="text-body-tertiary">
                                   Recipe not found
