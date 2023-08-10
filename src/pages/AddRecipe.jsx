@@ -39,7 +39,7 @@ const AddRecipe = () => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   const submitRecipe = async () => {
     setIsLoading(true);
