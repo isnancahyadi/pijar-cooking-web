@@ -9,6 +9,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@hookform/resolvers": "^3.1.1",
     "@reduxjs/toolkit": "^1.9.5",
+    "@sentry/cli": "^2.20.5",
     "@sentry/react": "^7.64.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -30,10 +31,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && npm run sentry:sourcemaps",
+    "build": "react-scripts build && npm run sentry:sourcemaps && npm run sentry:sourcemaps",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org cahyaneko --project pijar-cooking-web ../../../../../../.. && sentry-cli sourcemaps upload --org cahyaneko --project pijar-cooking-web ../../../../../../.."
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject ./build --org cahyaneko --project pijar-cooking-web  && sentry-cli sourcemaps upload ./build --org cahyaneko --project pijar-cooking-web"
   },
   "eslintConfig": {
     "extends": [

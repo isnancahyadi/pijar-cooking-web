@@ -6,14 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import * as Sentry from "@sentry/react";
 
 Sentry.init({
-  dsn: "https://8609856256f798009346cd684e91b7a6@o4505384079851520.ingest.sentry.io/4505747454492672",
+  dsn: process.env.REACT_APP_SENTRY_DSN,
   integrations: [
     new Sentry.BrowserTracing({
       // Set 'tracePropagationTargets' to control for which URLs distributed tracing should be enabled
-      tracePropagationTargets: [
-        "localhost",
-        "https://pijar-cooking-web.vercel.app/",
-      ],
+      tracePropagationTargets: [process.env.REACT_APP_BASE_URL],
     }),
     new Sentry.Replay(),
   ],
