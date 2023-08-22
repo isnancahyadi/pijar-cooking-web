@@ -33,6 +33,22 @@
       src="https://kit.fontawesome.com/07d412da62.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Google tag -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=%REACT_APP_ANALYTIC_KEY%"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", process.env.REACT_APP_ANALYTIC_KEY);
+    </script>
+
     <title>Pijar Cooking</title>
   </head>
   <body>
