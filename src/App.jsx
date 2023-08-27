@@ -23,6 +23,7 @@ import {
   faAngleLeft,
   faAngleRight,
   faSliders,
+  faPencil,
 } from "@fortawesome/free-solid-svg-icons";
 import { PersistGate } from "redux-persist/integration/react";
 import axios from "axios";
@@ -31,6 +32,7 @@ import Detail from "./pages/Detail";
 import AddRecipe from "./pages/AddRecipe";
 import ListRecipe from "./pages/ListRecipe";
 import Register from "./pages/Register";
+import EditProfile from "./pages/EditProfile";
 
 library.add(
   faMagnifyingGlass,
@@ -38,7 +40,8 @@ library.add(
   faImage,
   faAngleLeft,
   faAngleRight,
-  faSliders
+  faSliders,
+  faPencil
 );
 
 const router = createBrowserRouter(
@@ -46,7 +49,10 @@ const router = createBrowserRouter(
     <Route>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
-        <Route path="profile" element={<Profile />} />
+        <Route path="profile">
+          <Route index element={<Profile />} />
+          <Route path="edit" element={<EditProfile />} />
+        </Route>
         <Route path="recipe" element={<ListRecipe />} />
         <Route path="detail/:any" element={<Detail />} />
         <Route path="recipe/add" element={<AddRecipe />} />

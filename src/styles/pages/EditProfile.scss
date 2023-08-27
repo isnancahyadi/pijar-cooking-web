@@ -1,0 +1,41 @@
+.EditProfile {
+  width: 100%;
+  padding: 0 4rem;
+  position: relative;
+
+  #content {
+    position: relative;
+    margin-top: 10rem;
+
+    .card {
+      height: auto;
+      width: 65%;
+      box-shadow: 5px 5px 10px 1px rgba(110, 108, 146, 0.25);
+
+      .container-profile-pict {
+        .btn-edit-photo,
+        #profile-pict {
+          width: 27vh;
+          height: 27vh;
+        }
+
+        .btn-edit-photo {
+          position: absolute;
+          cursor: pointer;
+          border-radius: 50%;
+          background-color: transparent;
+          color: transparent;
+
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.25);
+            color: $primary-color;
+          }
+
+          #ic-pencil {
+            font-size: 6rem;
+          }
+        }
+      }
+    }
+  }
+}

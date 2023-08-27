@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import MyRecipe from "../components/Tab/Profile/MyRecipe";
 import TabProfile from "../components/Tab/Profile/TabProfile";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const tabContent = [
   {
@@ -39,6 +39,22 @@ const Profile = () => {
           </div>
           <div className="container mt-5">
             <h1 className="h1-profile text-center">{user?.fullname}</h1>
+          </div>
+          <div className="container mt-3">
+            <div className="row align-items-center justify-content-center">
+              <div className="col-auto">
+                <Link to={"/profile/edit"}>
+                  <button className="btn btn-primary" type="button">
+                    Edit Profile
+                  </button>
+                </Link>
+              </div>
+              <div className="col-auto">
+                <button className="btn btn-secondary" type="button">
+                  Edit Account
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
