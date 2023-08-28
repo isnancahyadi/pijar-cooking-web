@@ -64,7 +64,7 @@ const EditProfile = () => {
             }
           );
 
-    await Promise.all([postProfile(), postProfilePicture])
+    await Promise.all([postProfile(), postProfilePicture()])
       .then(() => {
         dispatch(getUser());
         Swal.fire({
