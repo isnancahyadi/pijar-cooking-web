@@ -33,6 +33,7 @@ import AddRecipe from "./pages/AddRecipe";
 import ListRecipe from "./pages/ListRecipe";
 import Register from "./pages/Register";
 import EditProfile from "./pages/EditProfile";
+import MyRecipeList from "./pages/MyRecipeList";
 
 library.add(
   faMagnifyingGlass,
@@ -52,6 +53,7 @@ const router = createBrowserRouter(
         <Route path="profile">
           <Route index element={<Profile />} />
           <Route path="edit" element={<EditProfile />} />
+          <Route path="my-recipe" element={<MyRecipeList />} />
         </Route>
         <Route path="recipe" element={<ListRecipe />} />
         <Route path="detail/:any" element={<Detail />} />

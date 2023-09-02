@@ -54,7 +54,10 @@
     background-position: center;
     display: flex;
     align-items: end;
-    padding: 20px;
+
+    .txt-title {
+      padding: 20px;
+    }
   }
 
   @media only screen and (max-width: 480px) {

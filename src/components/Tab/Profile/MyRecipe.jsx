@@ -3,21 +3,19 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const MyRecipe = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
-
     axios
       .get(process.env.REACT_APP_MY_RECIPES)
       .then((response) => {
         setRecipeList(response?.data?.payload?.metadata);
         setIsLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setIsLoading(false);
-        return;
       });
   }, []);
 
@@ -45,35 +43,67 @@ const MyRecipe = () => {
             </h5>
           </div>
         ) : (
-          recipeList?.map((item, key) => (
-            <div
-              key={key}
-              className="col-md-4 col-xs-12 animate__animated animate__tada"
-            >
+          <>
+            {recipeList?.map((item, key) => (
+              <div
+                key={key}
+                className="col-md-4 col-xs-12 animate__animated animate__tada"
+              >
+                <Link
+                  to={`/detail/${item?.title
+                    ?.toLowerCase()
+                    ?.split(" ")
+                    ?.join("-")}`}
+                  state={{ id: item?.id }}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div
+                    className="my-recipe mt-2 mb-2"
+                    style={{
+                      backgroundImage: `url('${item?.image}')`,
+                    }}
+                  >
+                    <h3
+                      className="txt-title text-white"
+                      style={{ textShadow: "2px 2px 4px #000000" }}
+                    >
+                      {item?.title}
+                    </h3>
+                  </div>
+                </Link>
+              </div>
+            ))}
+            <div className="col-md-4 col-xs-12 animate__animated animate__tada">
               <Link
-                to={`/detail/${item?.title
-                  ?.toLowerCase()
-                  ?.split(" ")
-                  ?.join("-")}`}
-                state={{ id: item?.id }}
+                to={"/profile/my-recipe"}
                 style={{ textDecoration: "none" }}
               >
-                <div
-                  className="my-recipe mt-2 mb-2"
-                  style={{
-                    backgroundImage: `url('${item?.image}')`,
-                  }}
-                >
-                  <h3
-                    className="text-white"
-                    style={{ textShadow: "2px 2px 4px #000000" }}
+                <div className="mt-2 mb-2">
+                  <div
+                    className="my-recipe"
+                    style={{
+                      backgroundImage:
+                        "url('/assets/img/recipe/chicken-green-curry-bowl.jpg')",
+                    }}
                   >
-                    {item?.title}
-                  </h3>
+                    <div
+                      className="my-recipe"
+                      style={{
+                        backgroundColor: "rgba(215, 154, 255, 0.75)",
+                      }}
+                    >
+                      <h3
+                        className="txt-title text-white"
+                        style={{ textShadow: "2px 2px 4px #000000" }}
+                      >
+                        More Recipe
+                      </h3>
+                    </div>
+                  </div>
                 </div>
               </Link>
             </div>
-          ))
+          </>
         )}
       </div>
     </div>
