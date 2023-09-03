@@ -9,6 +9,8 @@ import axios from "axios";
 import { getUser } from "../store/reducers/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { doc, updateDoc } from "firebase/firestore";
+import { fireStoreDB } from "../firebase";
 
 const EditProfile = () => {
   const user = useSelector((state) => state.auth.auth);
@@ -65,7 +67,43 @@ const EditProfile = () => {
           );
 
     await Promise.all([postProfile(), postProfilePicture()])
-      .then(() => {
+      .then((response) => {
+        // console.log(response);
+        // let dataFirestore = {}, id = ''
+        // if (response[0] && response[1]) {
+        //   id = response[1]?.data?.payload[0]?.id
+        //   dataFirestore = {
+        //     fullname: data?.fullname,
+        //     phone_number: data?.phoneNumber,
+        //     profile_picture: response[1]?.data?.payload[0]?.profile_picture
+        //   }
+        // } else {
+        //   id = response[0]?.data?.payload[0]?.id
+        //   dataFirestore = {
+        //     fullname: data?.fullname,
+        //     phone_number: data?.phoneNumber
+        //   }
+        // }
+        const id =
+          response[1]?.data?.payload[0]?.id ??
+          response[0]?.data?.payload[0]?.id;
+
+        const dataFirestore = {
+          fullname: data?.fullname,
+          phone_number: data?.phoneNumber,
+          ...(response[1]?.data?.payload[0]?.profile_picture && {
+            profile_picture: response[1]?.data?.payload[0]?.profile_picture,
+          }),
+        };
+
+        updateDoc(doc(fireStoreDB, "users", id.toString()), dataFirestore)
+          .then(() => {
+            console.log("user created");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+
         dispatch(getUser());
         Swal.fire({
           title: "Update Success",
