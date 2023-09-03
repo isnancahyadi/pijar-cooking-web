@@ -14,6 +14,10 @@ const MyRecipeList = () => {
   }, []);
 
   useEffect(() => {
+    if (!localStorage.getItem("token")) navigate("/login");
+  }, []);
+
+  useEffect(() => {
     setRecipeIsFetching(true);
     axios
       .get(`${process.env.REACT_APP_MY_RECIPES}?limit=6&page=${currentPage}`)

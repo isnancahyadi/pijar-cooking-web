@@ -23,6 +23,14 @@ const EditProfile = () => {
   const [profileImgView, setProfileImgView] = useState(null);
   const [profileImgName, setProfileImgName] = useState("");
 
+  useEffect(() => {
+    document.title = "Edit Profile";
+  }, []);
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) navigate("/login");
+  }, []);
+
   const schema = yup.object().shape({
     fullname: yup.string().required("Full name is required"),
     phoneNumber: yup
