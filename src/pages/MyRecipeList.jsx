@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ListRecipeContainer from "../components/ListRecipe/ListRecipeContainer";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const MyRecipeList = () => {
+  const navigate = useNavigate();
+
   const [recipeIsFetching, setRecipeIsFetching] = useState(false);
   const [recipeList, setRecipeList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
