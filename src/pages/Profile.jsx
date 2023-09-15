@@ -50,9 +50,11 @@ const Profile = () => {
                 </Link>
               </div>
               <div className="col-auto">
-                <button className="btn btn-secondary" type="button">
-                  Edit Account
-                </button>
+                <Link to={"/profile/edit-account"}>
+                  <button className="btn btn-secondary" type="button">
+                    Edit Account
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

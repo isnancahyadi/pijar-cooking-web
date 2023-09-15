@@ -1,0 +1,16 @@
+.EditAccount {
+  width: 100%;
+  padding: 0 4rem;
+  position: relative;
+
+  #content {
+    position: relative;
+    margin-top: 10rem;
+
+    .card {
+      height: auto;
+      width: 55%;
+      box-shadow: 5px 5px 10px 1px rgba(110, 108, 146, 0.25);
+    }
+  }
+}
